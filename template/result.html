@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Startup Prediction Result</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #eef2f3, #cfd9df);
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .box {
+        background-color: #ffffffcc;
+        padding: 30px 50px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 28px;
+        color: #2a5298;
+        margin-bottom: 15px;
+      }
+
+      .prediction-text {
+        font-size: 20px;
+        color: #e63946;
+        font-style: italic;
+        margin-bottom: 25px;
+      }
+
+      img {
+        display: block;
+        margin: 0 auto 20px;
+        width: 180px;
+        border-radius: 10px;
+      }
+
+      marquee {
+        color: #2a5298;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .back-btn {
+        padding: 8px 20px;
+        background-color: #2a5298;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 15px;
+        transition: background-color 0.3s;
+      }
+
+      .back-btn:hover {
+        background-color: #1e3c72;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Startup Prediction Result</h1>
+
+      <marquee behavior="scroll" direction="left" scrollamount="6">
+        {{ prediction_text }}
+      </marquee>
+
+      <div class="prediction-text">{{ prediction_text }}</div>
+
+     
+      <button class="back-btn" onclick="history.back()">Back</button>
+    </div>
+  </body>
+</html>
