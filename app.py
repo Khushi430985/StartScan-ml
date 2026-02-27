@@ -45,7 +45,7 @@ def predict():
         return render_template('result.html', prediction_text=result)
 
     except Exception as e:
-        return render_template('result.html', prediction_text="Error in input values")
+        return render_template('result.html', prediction_text=str(e))
 
 
 if __name__ == "__main__":
