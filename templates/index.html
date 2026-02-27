@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Startup Success Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            width: 420px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2a5298;
+            margin-bottom: 5px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 13px;
+            display: block;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #2a5298;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 18px;
+            padding: 10px;
+            background-color: #2a5298;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #1e3c72;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 12px;
+            background: #f4f6f9;
+            border-left: 5px solid #2a5298;
+            border-radius: 6px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Startup Success Predictor</h1>
+    <p>Machine Learning based prediction using funding & milestone data</p>
+
+    <form action="{{ url_for('predict')}}" method="post">
+
+        <label>Age at First Funding Year</label>
+        <input type="number" step="any" name="age_first_funding_year" required>
+
+        <label>Age at Last Funding Year</label>
+        <input type="number" step="any" name="age_last_funding_year" required>
+
+        <label>Age at First Milestone Year</label>
+        <input type="number" step="any" name="age_first_milestone_year" required>
+
+        <label>Age at Last Milestone Year</label>
+        <input type="number" step="any" name="age_last_milestone_year" required>
+
+        <label>Number of Relationships</label>
+        <input type="number" name="relationships" required>
+
+        <label>Funding Rounds</label>
+        <input type="number" name="funding_rounds" required>
+
+        <label>Total Funding (USD)</label>
+        <input type="number" step="any" name="funding_total_usd" required>
+
+        <label>Milestones Achieved</label>
+        <input type="number" name="milestones" required>
+
+        <label>Average Participants</label>
+        <input type="number" step="any" name="avg_participants" required>
+
+        <button type="submit">Predict Startup Outcome</button>
+    </form>
+
+    {% if prediction_text %}
+    <div class="result">
+        {{ prediction_text }}
+    </div>
+    {% endif %}
+
+    
+
+</body>
+</html>

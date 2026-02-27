@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Startup Prediction Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .result-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #2a5298;
+            margin-bottom: 20px;
+        }
+
+        .prediction-box {
+            padding: 15px;
+            background: #f4f6f9;
+            border-left: 6px solid #2a5298;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+       .success {
+    background-color: #e6f9ec;
+    border: 2px solid #28a745;
+    color: #1e7e34;
+}
+
+.failure {
+    background-color: #fdeaea;
+    border: 2px solid #dc3545;
+    color: #a71d2a;
+}
+
+        button {
+            padding: 10px 20px;
+            background-color: #2a5298;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #1e3c72;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+<div class="result-container">
+
+    <h1>Prediction Result</h1>
+
+    {% if prediction_text == "Startup is likely to be Acquired" %}
+        <div class="prediction-box success">
+            {{ prediction_text }}
+        </div>
+    {% else %}
+        <div class="prediction-box failure">
+            {{ prediction_text }}
+        </div>
+    {% endif %}
+
+    <button onclick="window.location.href='/'">Predict Again</button>
+
+  
+</div>
+
+</body>
+</html>
